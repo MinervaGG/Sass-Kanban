@@ -1,0 +1,100 @@
+@use 'funciones';
+@import 'variables';
+
+* {
+	font-family: $font-family;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+main {
+	@include funciones.set-background($url-background: "https://shorturl.at/kzBI1");
+}
+
+h1 {
+	color: $color_white;
+	background-color: $background-color_blueish;
+	text-align: center;
+	margin: 50px auto;
+	padding: 10px 20px;
+	width: 20%;
+	font-weight: 400;
+	border-radius: 10px;
+}
+
+div {
+	h2 {
+		font-weight: 500;
+	}
+	h3 {
+		margin-top: 0;
+		font-weight: 500;
+	}
+	display: block;
+	.delete-card {
+		background-color: $background-color_red;
+		@extend %icon-delete-position;
+	}
+}
+
+#kanban {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	.column {
+		float: left;
+		width: 19%;
+		border-radius: 10px;
+		background-color: $background-color_gray;
+		margin-left: 10px;
+		display: block;
+		margin-bottom: 30px;
+		&:first-child {
+			margin-left: 30px;
+		}
+		h2 {
+			margin-left: 10px;
+		}
+		.card {
+			background-color: $background-color_white;
+			padding: 10px;
+			border: 1px solid rgb(155,155,155,0.3);
+			margin: 10px;
+			border-radius: 10px;            
+			&:hover {
+				background-color: $background-color_lighter-blueish;
+				color: $color_white;
+				cursor: pointer;
+				.delete-card {
+					background-color: $background-color_black;
+					@extend %icon-delete-position;
+				}
+                [class ~= 'fas']{
+                color: $background-color_black;
+                }
+			}
+		}
+	}
+}
+
+div.tag {
+	display: inline;
+	.fa-cube {
+		background-color: $background-color_red;
+		@include funciones.tag-icons;
+	}
+	.fa-desktop {
+		background-color: $background-color_green;
+		@include funciones.tag-icons;
+	}
+	.fa-mobile-alt {
+		background-color: $background-color_yellow;
+        @include funciones.tag-icons($padding: 5px 8px);
+	}
+}

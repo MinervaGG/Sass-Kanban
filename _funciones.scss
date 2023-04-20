@@ -1,0 +1,26 @@
+@import 'variables';
+
+@mixin tag-icons($padding: 5px){
+    padding: $padding;
+    border-radius: 50%;
+    color: $color_white;
+}
+
+@mixin set-background($url-background){
+    background-image: url($url-background);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: $background-color_darkblue;
+	background-attachment: scroll;
+	overflow: hidden;
+}
+
+
+%icon-delete-position{
+    display: inline;
+    padding: 2px 5px;
+    position: relative;
+    left: 90%;
+    border-radius: 50%;
+    color: $color_white;
+}
